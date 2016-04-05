@@ -225,8 +225,8 @@ app.controller('pauseScreen', function($scope) {
   var oldKeyMappings = {};
   
   document.querySelector('body').addEventListener('keydown', function (e) {
-    console.log('keycode: ', e.keyCode);
-    console.log('code: ', e.code);
+    // console.log('keycode: ', e.keyCode);
+    // console.log('code: ', e.code);
 
     //only do the following if the emulator has started
     if ($('#retro').length < 1){
@@ -281,7 +281,7 @@ app.controller('pauseScreen', function($scope) {
         }
       }
       catch(err) {
-        console.log('error', err); //not focused on a form input tag
+        // console.log('error', err); //not focused on a form input tag
       }
     }
   });
@@ -571,7 +571,7 @@ app.controller('pauseScreen', function($scope) {
     for(keyMapping in systemSettings.keys) {
       oldKeyMappings[keyMapping] = systemSettings.keys[keyMapping];
     };
-    console.log('oldKeyMappings',oldKeyMappings);
+    // console.log('oldKeyMappings',oldKeyMappings);
 
     $('#keyMappingsForm').find("input").each(function(ev){
        $(this).val("click here to edit");
@@ -637,7 +637,7 @@ app.controller('pauseScreen', function($scope) {
     $('#keyMappingsForm').find("input").each(function(){
       var id = $(this).attr('id');
       var oldValueText = $scope.getOldValue(id);
-      console.log("oldValueText",oldValueText)
+      // console.log("oldValueText",oldValueText)
       document.getElementById(id).value = oldValueText;
     });
     $scope.disabled = true;

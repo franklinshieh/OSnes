@@ -15,7 +15,7 @@ app.controller('inputSelection', function($scope) {
     qrScreen.classList.remove('hidden');
   };
   $scope.closeQRScreen = function() {
-    console.log('close click');
+    // console.log('close click');
     qrScreen.classList.add('hidden');
   };
 
@@ -41,26 +41,26 @@ app.controller('inputSelection', function($scope) {
   });
 
 
-  chrome.system.network.getNetworkInterfaces(function (ipAddresses) {
-    ipAddresses.forEach(function (ipAddress) {
-      console.log(ipAddress);
-      if (/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ipAddress.address)) {
-        $scope.title = 'IP FOUND'
+  // chrome.system.network.getNetworkInterfaces(function (ipAddresses) {
+  //   ipAddresses.forEach(function (ipAddress) {
+  //     console.log(ipAddress);
+  //     if (/^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/.test(ipAddress.address)) {
+  //       $scope.title = 'IP FOUND'
 
-        $scope.ipAddress = ip4 = ipAddress.address;
-        var toQ = $scope.ipAddress + ':' + port;
+  //       $scope.ipAddress = ip4 = ipAddress.address;
+  //       var toQ = $scope.ipAddress + ':' + port;
 
-        if($scope.ipFound === false) {
-          new QRCode(document.getElementById('qrCode'), toQ);
-        }
+  //       if($scope.ipFound === false) {
+  //         new QRCode(document.getElementById('qrCode'), toQ);
+  //       }
 
-        $scope.ipFound = true;
+  //       $scope.ipFound = true;
 
-        // force scope to update
-        $scope.$apply()
-      }
-    });
+  //       // force scope to update
+  //       $scope.$apply()
+  //     }
+  //   });
 
-  });
+  // });
 
 });

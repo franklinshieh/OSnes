@@ -25,7 +25,7 @@ app.controller('gameSelection', function($scope, $http) {
   //Fetches ROM data from ipfs, converts to readable method for emulator, loads in the ROM
   var loading = document.getElementById('loading');
   $scope.getRom = function (game) {
-    console.log('game', game);
+    // console.log('game', game);
     loading.classList.remove('hidden');
     setTimeout(function(){
       document.getElementById('loadingText2').classList.remove('hidden');
@@ -38,7 +38,7 @@ app.controller('gameSelection', function($scope, $http) {
     }).then(function successCallback(response) {
         window.loadData(game.link.split("/")[5], new Uint8Array(response.data));
       }, function errorCallback(response) {
-        console.log('failuuuure', response);
+        // console.log('failuuuure', response);
       });
   }
 
